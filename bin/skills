@@ -1,0 +1,193 @@
+#!/usr/bin/env bash
+#
+# skills — portable installer/shim for an agent-agnostic skill library.
+#
+# Skills here follow the agentskills.io spec (plain SKILL.md + YAML frontmatter)
+# and are NOT tied to any one agent. This shim links them into whatever agent
+# toolchain you use, so the same canonical source serves all of them.
+#
+# Usage:
+#   skills list                       List skills in this repo
+#   skills install [targets] [--copy] Link (or copy) every skill into target dirs
+#   skills uninstall [targets]        Remove this repo's skills from target dirs
+#   skills manifest [--out FILE]      Write an agent-neutral skills.json index
+#
+# Targets (combine freely; default = --claude --codex):
+#   --claude            ~/.claude/skills            (Claude Code)
+#   --codex             ~/.agents/skills            (Codex / generic agents)
+#   --target DIR        any directory (Cursor, custom agent, shared drive…)
+#   --all               every known target above that resolves
+#
+# Options:
+#   --copy              copy instead of symlink (for sandboxes that block links)
+#   --dry-run           print what would happen, change nothing
+#
+# Env overrides:
+#   CLAUDE_SKILLS_DIR, CODEX_SKILLS_DIR override the default target paths.
+
+set -euo pipefail
+
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+CLAUDE_DIR="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}"
+CODEX_DIR="${CODEX_SKILLS_DIR:-$HOME/.agents/skills}"
+
+# --- helpers ----------------------------------------------------------------
+
+die() { echo "error: $*" >&2; exit 1; }
+info() { echo "  $*"; }
+
+# List skill directories (any dir containing a SKILL.md), names only.
+skill_dirs() {
+  find "$REPO_DIR" -maxdepth 2 -name SKILL.md -print0 \
+    | xargs -0 -n1 dirname \
+    | sort
+}
+
+# Extract a frontmatter field ("name" or "description") from a SKILL.md.
+frontmatter_field() {
+  local file="$1" key="$2"
+  awk -v key="$key" '
+    BEGIN { inblock=0 }
+    /^---[[:space:]]*$/ { inblock++; next }
+    inblock==1 {
+      if ($0 ~ "^"key":[[:space:]]*") {
+        sub("^"key":[[:space:]]*", "")
+        print
+        exit
+      }
+    }
+    inblock>=2 { exit }
+  ' "$file"
+}
+
+# Escape a string for embedding in JSON.
+json_escape() {
+  python3 -c 'import json,sys; print(json.dumps(sys.stdin.read().rstrip("\n")))' 2>/dev/null \
+    || sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' -e 's/^/"/' -e 's/$/"/'
+}
+
+# --- target resolution ------------------------------------------------------
+
+TARGETS=()
+COPY=0
+DRY_RUN=0
+MANIFEST_OUT="$REPO_DIR/skills.json"
+
+add_target() { TARGETS+=("$1"); }
+
+parse_targets() {
+  local saw_target=0
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --claude)  add_target "$CLAUDE_DIR"; saw_target=1 ;;
+      --codex)   add_target "$CODEX_DIR";  saw_target=1 ;;
+      --all)     add_target "$CLAUDE_DIR"; add_target "$CODEX_DIR"; saw_target=1 ;;
+      --target)  shift; [ $# -gt 0 ] || die "--target needs a directory"; add_target "$1"; saw_target=1 ;;
+      --copy)    COPY=1 ;;
+      --dry-run) DRY_RUN=1 ;;
+      --out)     shift; [ $# -gt 0 ] || die "--out needs a file"; MANIFEST_OUT="$1" ;;
+      *)         die "unknown option: $1" ;;
+    esac
+    shift
+  done
+  if [ "$saw_target" -eq 0 ]; then
+    add_target "$CLAUDE_DIR"
+    add_target "$CODEX_DIR"
+  fi
+}
+
+# --- commands ---------------------------------------------------------------
+
+cmd_list() {
+  echo "Skills in $REPO_DIR:"
+  while IFS= read -r d; do
+    local name; name="$(frontmatter_field "$d/SKILL.md" name)"
+    printf "  %-32s %s\n" "${name:-$(basename "$d")}" "$(basename "$d")"
+  done < <(skill_dirs)
+}
+
+link_one() {
+  local src="$1" dest_dir="$2" base; base="$(basename "$src")"
+  local dest="$dest_dir/$base"
+  if [ "$DRY_RUN" -eq 1 ]; then
+    info "[dry-run] $dest -> $src"; return
+  fi
+  mkdir -p "$dest_dir"
+  rm -rf "$dest"   # refresh any stale link/copy of OUR skill name
+  if [ "$COPY" -eq 1 ]; then
+    cp -R "$src" "$dest"
+    info "copied  $base -> $dest_dir"
+  else
+    ln -s "$src" "$dest"
+    info "linked  $base -> $dest_dir"
+  fi
+}
+
+cmd_install() {
+  parse_targets "$@"
+  for t in "${TARGETS[@]}"; do
+    echo "Installing into $t"
+    while IFS= read -r d; do link_one "$d" "$t"; done < <(skill_dirs)
+  done
+  [ "$COPY" -eq 1 ] && echo "Done (copied). Re-run after pulling updates to refresh." \
+                    || echo "Done (symlinked). Re-run after adding new skills."
+}
+
+cmd_uninstall() {
+  parse_targets "$@"
+  for t in "${TARGETS[@]}"; do
+    echo "Removing from $t"
+    while IFS= read -r d; do
+      local base dest; base="$(basename "$d")"; dest="$t/$base"
+      if [ -e "$dest" ] || [ -L "$dest" ]; then
+        if [ "$DRY_RUN" -eq 1 ]; then info "[dry-run] rm $dest";
+        else rm -rf "$dest"; info "removed $base"; fi
+      fi
+    done < <(skill_dirs)
+  done
+}
+
+cmd_manifest() {
+  parse_targets "$@"
+  local tmp; tmp="$(mktemp)"
+  {
+    echo "{"
+    echo "  \"\$schema\": \"https://agentskills.io/specification\","
+    echo "  \"generated\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\","
+    echo "  \"skills\": ["
+    local first=1
+    while IFS= read -r d; do
+      local name desc rel
+      name="$(frontmatter_field "$d/SKILL.md" name)"
+      desc="$(frontmatter_field "$d/SKILL.md" description)"
+      rel="${d#"$REPO_DIR"/}"
+      [ "$first" -eq 1 ] && first=0 || echo ","
+      printf '    {\n'
+      printf '      "name": %s,\n' "$(printf '%s' "${name:-$(basename "$d")}" | json_escape)"
+      printf '      "path": %s,\n' "$(printf '%s' "$rel" | json_escape)"
+      printf '      "description": %s\n' "$(printf '%s' "$desc" | json_escape)"
+      printf '    }'
+    done < <(skill_dirs)
+    echo ""
+    echo "  ]"
+    echo "}"
+  } > "$tmp"
+  if [ "$DRY_RUN" -eq 1 ]; then cat "$tmp"; rm -f "$tmp"; return; fi
+  mv "$tmp" "$MANIFEST_OUT"
+  echo "Wrote $MANIFEST_OUT"
+}
+
+# --- dispatch ---------------------------------------------------------------
+
+cmd="${1:-}"; shift || true
+case "$cmd" in
+  list)      cmd_list ;;
+  install)   cmd_install "$@" ;;
+  uninstall) cmd_uninstall "$@" ;;
+  manifest)  cmd_manifest "$@" ;;
+  ""|-h|--help|help)
+    sed -n '2,40p' "$0" | sed 's/^# \{0,1\}//'
+    ;;
+  *) die "unknown command: $cmd (try: list, install, uninstall, manifest)" ;;
+esac

@@ -1,0 +1,151 @@
+{
+  "$schema": "https://agentskills.io/specification",
+  "generated": "2026-06-15T08:36:19Z",
+  "skills": [
+    {
+      "name": "api-controller",
+      "path": "api-controller",
+      "description": "Use when writing or reviewing an API/controller/handler layer (REST, GraphQL resolver, gRPC, CLI command, message consumer) \u2014 request deserialization, input validation, auth checks, status codes, error mapping, and keeping controllers thin. Catches \"fat controllers\" with business logic or direct DB access. Technology-agnostic."
+    },
+    {
+      "name": "clean-architecture",
+      "path": "clean-architecture",
+      "description": "Use when deciding which layer code belongs in, reviewing whether a controller/service/domain/repository is doing too much, untangling a \"fat controller\" or \"anemic/God service\", or enforcing the dependency rule between API, application, domain, and persistence layers. Technology-agnostic; the glue skill for the layered-* suite."
+    },
+    {
+      "name": "developer-productivity",
+      "path": "developer-productivity",
+      "description": "Use when improving developer workflow, reducing friction in a codebase, designing local development environments, making CI faster, eliminating toil, evaluating developer experience, or thinking about how team practices (async communication, PR size, feedback loops) affect throughput. Covers individual and team-level productivity."
+    },
+    {
+      "name": "devops-engineer",
+      "path": "devops-engineer",
+      "description": "Use when thinking about deployment pipelines, infrastructure-as-code, observability, reliability engineering, incident response, or the DevOps/SRE mindset \u2014 CI/CD design, toil reduction, SLOs, on-call, runbooks, blast radius reduction, and the philosophy of treating operations as a software engineering problem. Technology-agnostic."
+    },
+    {
+      "name": "domain-model",
+      "path": "domain-model",
+      "description": "Use when designing or reviewing the domain layer \u2014 entities, value objects, aggregates, invariants, domain logic and domain events. Catches the \"anemic domain model\" (logic-less data bags with all rules in services) and domain code that leaks framework/ORM/persistence concerns. Technology-agnostic; DDD building blocks."
+    },
+    {
+      "name": "dto-mapping",
+      "path": "dto-mapping",
+      "description": "Use when designing DTOs / request-response models / commands, or mapping between them and domain objects \u2014 at the API edge or any boundary. Catches leaking ORM/domain entities to clients, over-posting/mass-assignment, behavior creeping into DTOs, and mapping logic scattered through controllers/services. Technology-agnostic."
+    },
+    {
+      "name": "kent-beck-tdd",
+      "path": "kent-beck-tdd",
+      "description": "Use when implementing any feature, fixing any bug, or when deciding whether tests are \"good enough\" \u2014 applying Kent Beck's Test-Driven Development as its originator practiced it. Covers Red/Green/Refactor, the simple design rules, YAGNI, baby steps, and the key forcing questions Beck uses to keep code honest."
+    },
+    {
+      "name": "kubernetes-api-design",
+      "path": "kubernetes-api-design",
+      "description": "Use when designing distributed system APIs, control planes, or systems that need eventual consistency \u2014 applying Kubernetes' declarative API design, controller/reconciliation loop pattern, operator pattern, or level-triggered vs edge-triggered design. Also when evaluating whether a system should be imperative or declarative."
+    },
+    {
+      "name": "linux-kernel-culture",
+      "path": "linux-kernel-culture",
+      "description": "Use when contributing to kernel-style projects, writing patch-based submissions, doing code review in a direct/high-signal culture, understanding Linus Torvalds' engineering philosophy, or designing systems where correctness and simplicity are absolute constraints. Covers the Linux development model, patch culture, and Linus's core engineering principles."
+    },
+    {
+      "name": "martin-fowler-refactoring",
+      "path": "martin-fowler-refactoring",
+      "description": "Use when cleaning up existing code without changing behavior \u2014 recognizing code smells, choosing the right refactoring move, sequencing safe incremental steps, and knowing when to stop. Applies Fowler's refactoring catalog: extract/inline/move/rename mechanics with tests as a safety net."
+    },
+    {
+      "name": "ml-engineer",
+      "path": "ml-engineer",
+      "description": "Use when approaching problems as an ML engineer \u2014 framing ML problems correctly, choosing between ML vs non-ML solutions, designing training/evaluation pipelines, preventing data leakage, setting up experiment tracking, deploying models, and monitoring model quality in production. Covers the ML engineering mindset alongside the software engineering practices that make ML reliable."
+    },
+    {
+      "name": "nextjs-app-router",
+      "path": "nextjs-app-router",
+      "description": "Use when building with Next.js 13+/14+ App Router \u2014 understanding Server Components vs Client Components, data fetching with async/await or fetch(), caching model (static/dynamic/revalidation), Server Actions, route handlers, streaming with Suspense, metadata, and when something renders on the server vs client. Covers the mental model shift from Pages Router."
+    },
+    {
+      "name": "nextjs-patterns",
+      "path": "nextjs-patterns",
+      "description": "Use when architecting a Next.js App Router application \u2014 organizing routes and layouts, handling auth/middleware, structuring Server vs Client boundaries, setting up metadata and SEO, managing environment variables, monorepo patterns, and error/loading/not-found conventions. Covers structural decisions and file-system conventions."
+    },
+    {
+      "name": "persistence-repository",
+      "path": "persistence-repository",
+      "description": "Use when designing or reviewing the persistence layer \u2014 repository interfaces and implementations, the repository vs DAO distinction, mapping domain aggregates to/from ORM entities or rows, query placement, and keeping the database out of the domain. Catches ORM entities leaking as domain models and business logic in repositories. Technology-agnostic."
+    },
+    {
+      "name": "qa-engineer",
+      "path": "qa-engineer",
+      "description": "Use when approaching software quality as a QA engineer \u2014 building a testing strategy, deciding what to test and at which layer, writing effective test cases, shifting quality left, reviewing code for testability, designing CI quality gates, or thinking about exploratory vs automated testing. Covers QA mindset, test pyramid, and quality advocacy."
+    },
+    {
+      "name": "react-internals",
+      "path": "react-internals",
+      "description": "Use when you need to understand *why* React works the way it does \u2014 Fiber reconciliation, the rendering model, Concurrent Mode, hooks internals, or when debugging unexpected re-renders, stale closures, batching behavior, or tearing. Understanding the internals predicts behavior without memorizing rules."
+    },
+    {
+      "name": "react-patterns",
+      "path": "react-patterns",
+      "description": "Use when designing React components \u2014 choosing between hooks, compound components, render props, and composition patterns; avoiding prop drilling; managing shared state; or when a component is growing too large and needs splitting. Covers idiomatic React composition patterns."
+    },
+    {
+      "name": "react-performance",
+      "path": "react-performance",
+      "description": "Use when a React app has rendering performance problems \u2014 excessive re-renders, jank, slow list rendering, large bundle size, or slow initial load. Covers profiling first, then targeted fixes: memo/useMemo/useCallback, virtualization, code splitting, Suspense, and avoiding premature optimization."
+    },
+    {
+      "name": "rich-hickey-simplicity",
+      "path": "rich-hickey-simplicity",
+      "description": "Use when evaluating whether a design is genuinely simple or just familiar \u2014 distinguishing simple from easy, identifying complected concepts that should be separated, deciding whether to add an abstraction, or reviewing architecture for hidden complexity. Applies Rich Hickey's \"Simple Made Easy\" philosophy."
+    },
+    {
+      "name": "service-layer",
+      "path": "service-layer",
+      "description": "Use when writing or reviewing an application/service/use-case layer \u2014 orchestrating a business operation across domain objects and repositories, setting transaction boundaries, publishing events, and coordinating side effects. Catches \"God services\" stuffed with business rules, mapping, or framework/SQL code. Technology-agnostic."
+    },
+    {
+      "name": "splunk-cim-normalization",
+      "path": "splunk-cim-normalization",
+      "description": "Use when normalizing Splunk fields to standard names so searches, dashboards, and detections work across data sources \u2014 mapping vendor fields to CIM (Common Information Model), building/validating data models, tagging events, or when a correlation search or Enterprise Security panel returns nothing because fields don't match. Covers CIM data models, field aliases, tags, eventtypes, and acceleration."
+    },
+    {
+      "name": "splunk-dashboards",
+      "path": "splunk-dashboards",
+      "description": "Use when building or improving Splunk dashboards, reports, or visualizations \u2014 Dashboard Studio or Simple XML, choosing the right chart, adding inputs/filters/drilldowns, defining KPIs, making panels load fast with base searches or accelerated data models, or fixing dashboards that are slow, cluttered, or hard to read."
+    },
+    {
+      "name": "splunk-detection-engineering",
+      "path": "splunk-detection-engineering",
+      "description": "Use when building, tuning, or reviewing Splunk security detections \u2014 correlation searches, scheduled alerts, Enterprise Security notable events, risk-based alerting (RBA), or mapping detections to MITRE ATT&CK. Also when a detection is too noisy, misses true positives, or you need to reduce false positives. Covers detection logic, thresholds, throttling, and the detection lifecycle."
+    },
+    {
+      "name": "splunk-log-investigation",
+      "path": "splunk-log-investigation",
+      "description": "Use when investigating an incident, outage, error spike, latency regression, or anomaly using Splunk logs \u2014 going from a symptom (\"500s started at 2pm\", \"checkout is slow\", \"users can't log in\") to root cause. Covers scoping, correlating across sources, tracing a request, and building the timeline."
+    },
+    {
+      "name": "splunk-spl-authoring",
+      "path": "splunk-spl-authoring",
+      "description": "Use when writing, fixing, or reviewing Splunk SPL searches \u2014 building a query from scratch, extracting fields, aggregating with stats/timechart/tstats, parsing raw logs, or when a search returns no/wrong results or runs slowly. Covers the search pipeline, command order, and idiomatic SPL."
+    },
+    {
+      "name": "splunk-spl-optimization",
+      "path": "splunk-spl-optimization",
+      "description": "Use when a Splunk search is slow, times out, hits subsearch/memory limits, scans too many events, or costs too much \u2014 or when reviewing SPL for performance before scheduling it as an alert/dashboard panel. Covers filtering early, tstats/data models, avoiding join/transaction, and search-cost diagnosis."
+    },
+    {
+      "name": "splunk-threat-hunting",
+      "path": "splunk-threat-hunting",
+      "description": "Use when proactively hunting for threats in Splunk that existing alerts didn't catch \u2014 forming a hypothesis, exploring data for anomalies, looking for lateral movement, beaconing, living-off-the-land, persistence, or suspicious patterns, and turning findings into detections. Distinct from incident investigation (no known alert) and from writing detections (hunting discovers what to detect)."
+    },
+    {
+      "name": "typescript-type-philosophy",
+      "path": "typescript-type-philosophy",
+      "description": "Use when designing TypeScript type signatures, choosing between generics/unions/intersections/conditional types, deciding how much type coverage to add, debugging \"type instantiation too deep\" or unsound types, or understanding why TypeScript makes specific trade-offs (structural typing, soundness vs completeness). Covers the TypeScript team's design goals and the practical implications."
+    },
+    {
+      "name": "uncle-bob-solid",
+      "path": "uncle-bob-solid",
+      "description": "Use when reviewing class/module design, deciding whether to extract/split/combine code, evaluating coupling and cohesion, or writing a justification for a design decision. Applies Robert C. Martin's SOLID principles with the original formulations, failure modes each prevents, and the common over-application traps."
+    }
+  ]
+}

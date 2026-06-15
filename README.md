@@ -74,17 +74,58 @@ Technology-agnostic. All six skills share one "place an order" example so they i
 
 ## Famous Engineering Philosophies
 
-Folder prefix: person's **last name** (e.g. `beck-`, `fowler-`, `karpathy-`). Philosophy as operating principles — not biography, actionable technique.
+Folder prefix: person's **last name** (e.g. `beck-`, `fowler-`, `karpathy-`). Philosophy as operating principles — not biography, actionable technique. Skills that are also productivity tools appear in both this section and the Productivity section.
 
+### Kent Beck (2 skills)
 | Skill | Teaches |
 |---|---|
 | [beck-tdd](beck-tdd/SKILL.md) | Red/Green/Refactor, YAGNI, baby steps, four simple design rules, forcing questions. |
+| [beck-xp](beck-xp/SKILL.md) | XP practices: pair programming, collective ownership, sustainable pace, CI, planning game. |
+
+### Martin Fowler (3 skills)
+| Skill | Teaches |
+|---|---|
 | [fowler-refactoring](fowler-refactoring/SKILL.md) | Code smells catalog, refactoring moves, safe mechanics, sequencing. |
+| [fowler-microservices](fowler-microservices/SKILL.md) | MonolithFirst, service boundary design, strangler fig, inter-service communication. |
+| [fowler-enterprise-patterns](fowler-enterprise-patterns/SKILL.md) | PoEAA: Active Record vs Data Mapper, Repository, Service Layer, Transaction Script. |
+
+### Robert C. Martin — Uncle Bob (2 skills)
+| Skill | Teaches |
+|---|---|
 | [martin-solid](martin-solid/SKILL.md) | SOLID principles — original formulations, failure modes, over-application traps. |
+| [martin-clean-arch](martin-clean-arch/SKILL.md) | Concentric rings, Dependency Rule, use-case layer, policy vs mechanism, Humble Object. |
+
+### Rich Hickey (2 skills)
+| Skill | Teaches |
+|---|---|
 | [hickey-simplicity](hickey-simplicity/SKILL.md) | Simple vs easy, complect vs compose, information vs place, simplicity questions. |
-| [karpathy-neural-nets](karpathy-neural-nets/SKILL.md) | Recipe for training NNs, Software 2.0 philosophy, build-from-scratch for understanding. |
+| [hickey-data-oriented](hickey-data-oriented/SKILL.md) | Data vs objects, open systems, immutable values, generic operations, spec at boundaries. |
+
+### Andrej Karpathy (4 skills)
+| Skill | Teaches |
+|---|---|
+| [karpathy-neural-nets](karpathy-neural-nets/SKILL.md) | Recipe for training NNs, build-from-scratch for understanding, debugging discipline. |
+| [karpathy-llm-intuitions](karpathy-llm-intuitions/SKILL.md) | How LLMs work intuitively: token prediction, context window, temperature, hallucination. |
+| [karpathy-software-2](karpathy-software-2/SKILL.md) | Software 2.0 thesis: neural nets as software, what changes about engineering. |
+| [karpathy-vibe-coding](karpathy-vibe-coding/SKILL.md) | Vibe coding philosophy: intent over syntax, when to trust generated code, limitations. |
+
+### Matt Pocock (7 skills — also in Productivity)
+| Skill | Teaches |
+|---|---|
 | [pocock-typescript](pocock-typescript/SKILL.md) | Inference over annotation, generics with constraints, discriminated unions, Zod. |
+| [pocock-typescript-generics](pocock-typescript-generics/SKILL.md) | Generic constraints, conditional types, infer, mapped types, template literals. |
+| [pocock-tsconfig](pocock-tsconfig/SKILL.md) | tsconfig options that matter: strict flags, module resolution, paths, composite. |
+| [pocock-grill-me](pocock-grill-me/SKILL.md) | Stress-test a plan before coding — resolve every branch of the decision tree first. |
+| [pocock-teach](pocock-teach/SKILL.md) | Mission-first stateful teaching: lessons, reference docs, storage strength over fluency. |
+| [pocock-handoff](pocock-handoff/SKILL.md) | Compact a conversation into a clean handoff doc for the next agent session. |
+| [pocock-write-a-skill](pocock-write-a-skill/SKILL.md) | CSO: description-as-trigger, progressive disclosure, when to split reference files. |
+
+### Garry Tan (3 skills)
+| Skill | Teaches |
+|---|---|
 | [tan-product](tan-product/SKILL.md) | Founder mode, talking to users, design+engineering integration, when to build vs buy. |
+| [tan-design](tan-design/SKILL.md) | Design as product thinking — clarity, hierarchy, when design is a competitive moat. |
+| [tan-startup](tan-startup/SKILL.md) | Early-stage decisions: hiring bar, fundraising timing, focus vs optionality. |
 
 ---
 
@@ -114,6 +155,32 @@ How senior engineers in specific roles think about problems — mindset, strateg
 
 ---
 
+## Productivity & Learning Modes
+
+Interactive modes and session tools. Skills from famous engineers appear in **both** this section and their personality suite — same skill, different discovery path.
+
+### Planning & Design
+| Skill | Use when… |
+|---|---|
+| [grill-me](grill-me/SKILL.md) | Stress-testing a plan before writing code — one question at a time. |
+| [handoff](handoff/SKILL.md) | Compacting a long conversation into a handoff doc for a fresh agent session. |
+| [write-a-skill](write-a-skill/SKILL.md) | Creating a new agent skill with proper description format and structure. |
+
+### Learning
+| Skill | Use when… |
+|---|---|
+| [teach](teach/SKILL.md) | Learning a new concept over multiple sessions with missions, lessons, and reference docs. |
+
+### Caveman Suite — Token Compression (by [JuliusBrussee](https://github.com/JuliusBrussee/caveman))
+| Skill | Use when… |
+|---|---|
+| [caveman](caveman/SKILL.md) | Responses are too verbose — cuts ~65% output tokens, full technical accuracy. |
+| [caveman-commit](caveman-commit/SKILL.md) | Writing git commit messages — terse Conventional Commits format. |
+| [caveman-review](caveman-review/SKILL.md) | Reviewing a PR — one-line-per-finding comments with severity prefix. |
+| [caveman-compress](caveman-compress/SKILL.md) | Compressing a CLAUDE.md or memory file to save input tokens. |
+
+---
+
 ## Roadmap
 
 Planned suites — same depth-first approach.
@@ -125,15 +192,13 @@ Planned suites — same depth-first approach.
 - **TypeScript (deep)** — advanced types, generics, utility types, module patterns
 
 ### More Famous Philosophies (queued)
-- `linus-torvalds-systems` — performance, hardware-aware programming
-- `john-carmack-optimization` — game dev, fast math, LOD, profiling discipline
-- `dhh-convention` — convention over configuration, omakase, Shape Up methodology
-- `joel-spolsky-strategy` — developer environment, hiring, software estimation
+- `carmack-optimization` — game dev, fast math, profiling discipline
+- `dhh-convention` — convention over configuration, Shape Up methodology
+- `graham-simplicity` — startup thinking, simple solutions, taste in software
 
 ### More 100k+ Repos (queued)
-- `vue-reactivity-design` — Vue 3's reactivity system vs React's model
-- `postgresql-internals` — MVCC, query planner, extension design
-- `tensorflow-mlir` — compiler-based ML, graph optimization philosophy
+- `100k-vue` — Vue 3's reactivity system vs React's model
+- `100k-postgresql` — MVCC, query planner, extension design
 
 ### SDLC
 - `requirements-to-spec`, `code-review-discipline`, `release-management`, `incident-postmortem`, `observability-design`
@@ -151,3 +216,4 @@ Planned suites — same depth-first approach.
 - **One excellent example** over many mediocre ones; real, runnable, commented for *why*.
 - **Heavy reference → separate file** (e.g., command references, templates).
 - **Cross-reference** with `REQUIRED COMPANION:` markers — never `@`-link (force-loads and burns context).
+- **Duplicates are intentional** — personality skills and productivity skills can coexist for the same concept (different discovery path, same quality).

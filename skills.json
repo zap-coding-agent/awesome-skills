@@ -1,6 +1,6 @@
 {
   "$schema": "https://agentskills.io/specification",
-  "generated": "2026-06-15T08:47:40Z",
+  "generated": "2026-06-15T09:28:06Z",
   "skills": [
     {
       "name": "100k-kubernetes",
@@ -33,6 +33,31 @@
       "description": "Use when implementing any feature, fixing any bug, or when deciding whether tests are \"good enough\" \u2014 applying Kent Beck's Test-Driven Development as its originator practiced it. Covers Red/Green/Refactor, the simple design rules, YAGNI, baby steps, and the key forcing questions Beck uses to keep code honest."
     },
     {
+      "name": "beck-xp",
+      "path": "beck-xp",
+      "description": "Use when structuring team engineering practices \u2014 pair programming, collective code ownership, sustainable pace, continuous integration (the original meaning), small releases, planning game, or when a team is moving slowly because of process overhead or quality problems. Applies Kent Beck's Extreme Programming practices beyond TDD."
+    },
+    {
+      "name": "caveman",
+      "path": "caveman",
+      "description": "Use when token efficiency matters, responses are too verbose, or user says \"caveman mode\", \"talk like caveman\", \"be brief\", \"less tokens\", or invokes /caveman. Switches to ultra-compressed communication that cuts ~65% output tokens while keeping full technical accuracy."
+    },
+    {
+      "name": "caveman-commit",
+      "path": "caveman-commit",
+      "description": "Use when writing a git commit message \u2014 generates terse Conventional Commits format with subject \u226450 chars, body only when the \"why\" isn't obvious. Triggers on \"write a commit\", \"commit message\", \"generate commit\", or /caveman-commit."
+    },
+    {
+      "name": "caveman-compress",
+      "path": "caveman-compress",
+      "description": "Use when a CLAUDE.md, memory file, or large instruction document is bloated with filler and needs to be compressed to save input tokens \u2014 rewrites it in caveman style while preserving all technical substance. Triggers on /caveman-compress FILEPATH or \"compress my CLAUDE.md\"."
+    },
+    {
+      "name": "caveman-review",
+      "path": "caveman-review",
+      "description": "Use when reviewing a PR or diff \u2014 writes one-line-per-finding code review comments in format \"location: problem. fix.\" Triggers on \"review this PR\", \"code review\", \"review the diff\", or /caveman-review."
+    },
+    {
       "name": "clean-architecture",
       "path": "clean-architecture",
       "description": "Use when deciding which layer code belongs in, reviewing whether a controller/service/domain/repository is doing too much, untangling a \"fat controller\" or \"anemic/God service\", or enforcing the dependency rule between API, application, domain, and persistence layers. Technology-agnostic; the glue skill for the layered-* suite."
@@ -58,9 +83,34 @@
       "description": "Use when designing DTOs / request-response models / commands, or mapping between them and domain objects \u2014 at the API edge or any boundary. Catches leaking ORM/domain entities to clients, over-posting/mass-assignment, behavior creeping into DTOs, and mapping logic scattered through controllers/services. Technology-agnostic."
     },
     {
+      "name": "fowler-enterprise-patterns",
+      "path": "fowler-enterprise-patterns",
+      "description": "Use when designing data access patterns \u2014 choosing between Active Record, Data Mapper, Repository, Table Module, and Service Layer; understanding transaction scripts vs domain models; mapping objects to databases; or reviewing code where persistence and domain logic are tangled. From Fowler's Patterns of Enterprise Application Architecture (PoEAA)."
+    },
+    {
+      "name": "fowler-microservices",
+      "path": "fowler-microservices",
+      "description": "Use when deciding whether to use microservices, how to decompose a monolith, setting service boundaries, designing inter-service communication, or when a microservices system is causing more pain than it's solving. Applies Martin Fowler's nuanced take \u2014 he coined the term but also wrote \"MonolithFirst\"."
+    },
+    {
       "name": "fowler-refactoring",
       "path": "fowler-refactoring",
       "description": "Use when cleaning up existing code without changing behavior \u2014 recognizing code smells, choosing the right refactoring move, sequencing safe incremental steps, and knowing when to stop. Applies Fowler's refactoring catalog: extract/inline/move/rename mechanics with tests as a safety net."
+    },
+    {
+      "name": "grill-me",
+      "path": "grill-me",
+      "description": "Use when the user wants to stress-test a plan or design before writing code \u2014 asks probing questions one at a time, walks every branch of the decision tree, and surfaces implicit assumptions. Triggers on \"grill me\", \"stress-test this plan\", or \"challenge my design\"."
+    },
+    {
+      "name": "handoff",
+      "path": "handoff",
+      "description": "Use when a long conversation needs to be passed to a fresh agent session \u2014 compacts the current context into a handoff document another agent can pick up without losing thread. Triggers on \"handoff\", \"summarise for next session\", or \"prepare context for new agent\"."
+    },
+    {
+      "name": "hickey-data-oriented",
+      "path": "hickey-data-oriented",
+      "description": "Use when deciding between data-oriented and object-oriented design, building systems that process or transform data across boundaries, designing APIs that are easy to combine and extend, evaluating whether encapsulation is helping or hurting, or when a system is rigid and hard to extend. Applies Rich Hickey's data-oriented programming philosophy."
     },
     {
       "name": "hickey-simplicity",
@@ -68,9 +118,29 @@
       "description": "Use when evaluating whether a design is genuinely simple or just familiar \u2014 distinguishing simple from easy, identifying complected concepts that should be separated, deciding whether to add an abstraction, or reviewing architecture for hidden complexity. Applies Rich Hickey's \"Simple Made Easy\" philosophy."
     },
     {
+      "name": "karpathy-llm-intuitions",
+      "path": "karpathy-llm-intuitions",
+      "description": "Use when building intuition for how LLMs work \u2014 attention mechanisms, tokenization gotchas, why transformers work, context window behavior, temperature/sampling, prompt engineering from first principles, or when debugging why a model gives unexpected outputs. Applies Karpathy's \"understand the math, not just the API\" approach."
+    },
+    {
       "name": "karpathy-neural-nets",
       "path": "karpathy-neural-nets",
       "description": "Use when building or debugging neural networks, deciding how to structure ML code for understanding, training a model that isn't converging, or approaching any complex technical system using Karpathy's \"understand every line\" pedagogy. Covers his recipe for training neural nets, Software 2.0 philosophy, and his build-from-scratch approach to deep understanding."
+    },
+    {
+      "name": "karpathy-software-2",
+      "path": "karpathy-software-2",
+      "description": "Use when deciding whether a problem should be solved with traditional code vs a neural network, when framing ML as an engineering discipline (not research), understanding dataset curation as software engineering, or evaluating the \"is this worth MLing?\" question. Applies Karpathy's Software 2.0 thesis."
+    },
+    {
+      "name": "karpathy-vibe-coding",
+      "path": "karpathy-vibe-coding",
+      "description": "Use when working with AI coding assistants (Claude, Copilot, Cursor, etc.) as a core part of development \u2014 deciding what to delegate to AI vs write yourself, maintaining code understanding while using AI generation, catching AI mistakes, and applying Karpathy's philosophy of \"vibe coding\" for the right tasks and manual coding for the ones where understanding matters."
+    },
+    {
+      "name": "martin-clean-arch",
+      "path": "martin-clean-arch",
+      "description": "Use when designing the high-level structure of a system \u2014 applying Uncle Bob's Clean Architecture (the concentric rings), understanding the Dependency Rule, designing use cases as the architectural center, separating policy from mechanism, or when reviewing whether a codebase's architecture protects the business rules from framework/database/UI changes."
     },
     {
       "name": "martin-solid",
@@ -98,9 +168,39 @@
       "description": "Use when designing or reviewing the persistence layer \u2014 repository interfaces and implementations, the repository vs DAO distinction, mapping domain aggregates to/from ORM entities or rows, query placement, and keeping the database out of the domain. Catches ORM entities leaking as domain models and business logic in repositories. Technology-agnostic."
     },
     {
+      "name": "pocock-grill-me",
+      "path": "pocock-grill-me",
+      "description": "Use when the user wants to stress-test a plan or design before writing code \u2014 applies Matt Pocock's discipline of resolving every design branch before touching the keyboard. Triggers on \"grill me\", \"stress-test this\", or when a plan has unresolved forks that will become bugs."
+    },
+    {
+      "name": "pocock-handoff",
+      "path": "pocock-handoff",
+      "description": "Use when a long conversation needs to be handed off to a fresh agent \u2014 applies Matt Pocock's discipline of clean context transfer so the next session starts with full understanding rather than re-deriving everything. Triggers on \"handoff\", \"prepare for next session\", or \"summarise for a new agent\"."
+    },
+    {
+      "name": "pocock-teach",
+      "path": "pocock-teach",
+      "description": "Use when the user wants to learn something deeply over multiple sessions \u2014 applies Matt Pocock's mission-first, stateful teaching system with lessons, reference docs, and learning records. Triggers on \"teach me\", \"I want to learn X properly\", or when learning needs to persist across sessions."
+    },
+    {
+      "name": "pocock-tsconfig",
+      "path": "pocock-tsconfig",
+      "description": "Use when configuring TypeScript \u2014 setting up tsconfig.json for a new project, understanding what strict mode enables, configuring path aliases, setting up project references for monorepos, debugging \"cannot find module\" or declaration file errors, or understanding which tsconfig options actually matter. Applies Pocock's (Total TypeScript) tsconfig guidance."
+    },
+    {
       "name": "pocock-typescript",
       "path": "pocock-typescript",
       "description": "Use when writing advanced TypeScript \u2014 squeezing maximum type safety from inference, building utility types, using generics with precision, reading complex error messages, or when TypeScript feels like it's fighting you instead of helping. Applies Matt Pocock's (Total TypeScript) approach: inference over annotation, constraints over casts, type-level programming as a first-class skill."
+    },
+    {
+      "name": "pocock-typescript-generics",
+      "path": "pocock-typescript-generics",
+      "description": "Use when TypeScript generics feel too hard or too loose \u2014 writing generic utilities, using conditional types with infer, mapping over types, building type-safe function overloads, or when you get \"Type instantiation is excessively deep\" errors. Applies Pocock's advanced type-level programming approach."
+    },
+    {
+      "name": "pocock-write-a-skill",
+      "path": "pocock-write-a-skill",
+      "description": "Use when designing and writing a new agent skill \u2014 applies Matt Pocock's discipline around description-as-trigger, progressive disclosure, and bundling reference material. Triggers on \"write a skill\", \"create a skill\", or when reviewing whether an existing skill's description or structure is correct."
     },
     {
       "name": "qa-engineer",
@@ -163,9 +263,29 @@
       "description": "Use when proactively hunting for threats in Splunk that existing alerts didn't catch \u2014 forming a hypothesis, exploring data for anomalies, looking for lateral movement, beaconing, living-off-the-land, persistence, or suspicious patterns, and turning findings into detections. Distinct from incident investigation (no known alert) and from writing detections (hunting discovers what to detect)."
     },
     {
+      "name": "tan-design",
+      "path": "tan-design",
+      "description": "Use when making design decisions for a product, evaluating whether a UI is good, working with designers as an engineer, applying design thinking to technical problems, or understanding how Garry Tan's design background shapes his product philosophy. Covers taste, visual hierarchy, the engineer-designer collaboration, and how good design compounds."
+    },
+    {
       "name": "tan-product",
       "path": "tan-product",
       "description": "Use when making product decisions, evaluating startup ideas, deciding whether to build something, prioritizing features, designing for early users, or thinking about the relationship between engineering and product strategy. Applies Garry Tan's (YC president, ex-Initialized Capital, ex-Posterous) product and founder philosophy \u2014 founder mode, talking to users, design-engineering integration."
+    },
+    {
+      "name": "tan-startup",
+      "path": "tan-startup",
+      "description": "Use when making startup strategy decisions \u2014 evaluating product-market fit signals, deciding when to pivot vs persist, thinking about growth, fundraising readiness, early team building, or applying YC's frameworks to company decisions. Applies Garry Tan's (YC president) frameworks for company building."
+    },
+    {
+      "name": "teach",
+      "path": "teach",
+      "description": "Use when the user wants to learn a new skill or concept over multiple sessions \u2014 sets up a stateful teaching workspace with missions, lessons, and reference documents. Triggers on \"teach me\", \"I want to learn\", or \"explain X from scratch\"."
+    },
+    {
+      "name": "write-a-skill",
+      "path": "write-a-skill",
+      "description": "Use when the user wants to create a new agent skill \u2014 gathers requirements, drafts SKILL.md with proper description format, adds reference files if needed, and reviews with the user. Triggers on \"create a skill\", \"write a skill\", \"build a new skill\", or \"add a skill\"."
     }
   ]
 }

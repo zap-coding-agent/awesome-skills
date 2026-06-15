@@ -1,5 +1,5 @@
 ---
-name: kent-beck-tdd
+name: beck-tdd
 description: Use when implementing any feature, fixing any bug, or when deciding whether tests are "good enough" — applying Kent Beck's Test-Driven Development as its originator practiced it. Covers Red/Green/Refactor, the simple design rules, YAGNI, baby steps, and the key forcing questions Beck uses to keep code honest.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: uncle-bob-solid
+name: martin-solid
 description: Use when reviewing class/module design, deciding whether to extract/split/combine code, evaluating coupling and cohesion, or writing a justification for a design decision. Applies Robert C. Martin's SOLID principles with the original formulations, failure modes each prevents, and the common over-application traps.
 ---
 

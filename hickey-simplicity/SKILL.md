@@ -1,5 +1,5 @@
 ---
-name: rich-hickey-simplicity
+name: hickey-simplicity
 description: Use when evaluating whether a design is genuinely simple or just familiar — distinguishing simple from easy, identifying complected concepts that should be separated, deciding whether to add an abstraction, or reviewing architecture for hidden complexity. Applies Rich Hickey's "Simple Made Easy" philosophy.
 ---
 

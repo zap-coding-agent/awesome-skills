@@ -74,27 +74,30 @@ Technology-agnostic. All six skills share one "place an order" example so they i
 
 ## Famous Engineering Philosophies
 
-Skills that distill a famous practitioner's core operating principles — not biography, but actionable technique.
+Folder prefix: person's **last name** (e.g. `beck-`, `fowler-`, `karpathy-`). Philosophy as operating principles — not biography, actionable technique.
 
 | Skill | Teaches |
 |---|---|
-| [kent-beck-tdd](kent-beck-tdd/SKILL.md) | Red/Green/Refactor, YAGNI, baby steps, four simple design rules, forcing questions. |
-| [martin-fowler-refactoring](martin-fowler-refactoring/SKILL.md) | Code smells catalog, refactoring moves, safe mechanics, sequencing. |
-| [uncle-bob-solid](uncle-bob-solid/SKILL.md) | SOLID principles — original formulations, failure modes, over-application traps. |
-| [rich-hickey-simplicity](rich-hickey-simplicity/SKILL.md) | Simple vs easy, complect vs compose, information vs place, simplicity questions. |
+| [beck-tdd](beck-tdd/SKILL.md) | Red/Green/Refactor, YAGNI, baby steps, four simple design rules, forcing questions. |
+| [fowler-refactoring](fowler-refactoring/SKILL.md) | Code smells catalog, refactoring moves, safe mechanics, sequencing. |
+| [martin-solid](martin-solid/SKILL.md) | SOLID principles — original formulations, failure modes, over-application traps. |
+| [hickey-simplicity](hickey-simplicity/SKILL.md) | Simple vs easy, complect vs compose, information vs place, simplicity questions. |
+| [karpathy-neural-nets](karpathy-neural-nets/SKILL.md) | Recipe for training NNs, Software 2.0 philosophy, build-from-scratch for understanding. |
+| [pocock-typescript](pocock-typescript/SKILL.md) | Inference over annotation, generics with constraints, discriminated unions, Zod. |
+| [tan-product](tan-product/SKILL.md) | Founder mode, talking to users, design+engineering integration, when to build vs buy. |
 
 ---
 
 ## 100k+ Repo Design Philosophies
 
-What the engineers behind famous open-source repos *decided* and *why* — the design principles, not just usage.
+Folder prefix: **`100k-`** (e.g. `100k-react`, `100k-linux`). What the teams behind famous repos *decided* and *why* — design principles, not usage guides. Duplicates with language skills are intentional (different angle).
 
-| Skill | Captures |
-|---|---|
-| [react-internals](react-internals/SKILL.md) | React's Fiber reconciler, hooks model, Concurrent Mode, RSC design. |
-| [linux-kernel-culture](linux-kernel-culture/SKILL.md) | Linus's engineering values, patch culture, commit conventions, code review style. |
-| [kubernetes-api-design](kubernetes-api-design/SKILL.md) | Declarative APIs, reconciliation loop, Spec/Status, operator pattern. |
-| [typescript-type-philosophy](typescript-type-philosophy/SKILL.md) | Structural typing, soundness trade-offs, type system design goals. |
+| Skill | Repo | Stars |
+|---|---|---|
+| [100k-react](100k-react/SKILL.md) | `facebook/react` | 220k — decision-making philosophy, RFC process, stability contract |
+| [100k-linux](100k-linux/SKILL.md) | `torvalds/linux` | 170k — engineering values, patch culture, commit conventions |
+| [100k-kubernetes](100k-kubernetes/SKILL.md) | `kubernetes/kubernetes` | 110k — declarative APIs, reconciliation loop, operator pattern |
+| [100k-typescript](100k-typescript/SKILL.md) | `microsoft/TypeScript` | 100k — structural typing rationale, soundness trade-offs |
 
 ---
 

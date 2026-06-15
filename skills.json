@@ -1,11 +1,36 @@
 {
   "$schema": "https://agentskills.io/specification",
-  "generated": "2026-06-15T08:36:19Z",
+  "generated": "2026-06-15T08:47:40Z",
   "skills": [
+    {
+      "name": "100k-kubernetes",
+      "path": "100k-kubernetes",
+      "description": "Use when designing distributed system APIs, control planes, or systems that need eventual consistency \u2014 applying Kubernetes' declarative API design, controller/reconciliation loop pattern, operator pattern, or level-triggered vs edge-triggered design. Also when evaluating whether a system should be imperative or declarative."
+    },
+    {
+      "name": "100k-linux",
+      "path": "100k-linux",
+      "description": "Use when contributing to kernel-style projects, writing patch-based submissions, doing code review in a direct/high-signal culture, understanding Linus Torvalds' engineering philosophy, or designing systems where correctness and simplicity are absolute constraints. Covers the Linux development model, patch culture, and Linus's core engineering principles."
+    },
+    {
+      "name": "100k-react",
+      "path": "100k-react",
+      "description": "Use when making architectural decisions for a React-based project, contributing to React-style open source, understanding why React's API is shaped the way it is, or navigating the React RFC process. Covers the React team's decision-making philosophy, backward-compatibility constraints, the \"learn once write anywhere\" principle, and how they evaluate proposals. Distinct from react-internals (which covers the Fiber technical model)."
+    },
+    {
+      "name": "100k-typescript",
+      "path": "100k-typescript",
+      "description": "Use when designing TypeScript type signatures, choosing between generics/unions/intersections/conditional types, deciding how much type coverage to add, debugging \"type instantiation too deep\" or unsound types, or understanding why TypeScript makes specific trade-offs (structural typing, soundness vs completeness). Covers the TypeScript team's design goals and the practical implications."
+    },
     {
       "name": "api-controller",
       "path": "api-controller",
       "description": "Use when writing or reviewing an API/controller/handler layer (REST, GraphQL resolver, gRPC, CLI command, message consumer) \u2014 request deserialization, input validation, auth checks, status codes, error mapping, and keeping controllers thin. Catches \"fat controllers\" with business logic or direct DB access. Technology-agnostic."
+    },
+    {
+      "name": "beck-tdd",
+      "path": "beck-tdd",
+      "description": "Use when implementing any feature, fixing any bug, or when deciding whether tests are \"good enough\" \u2014 applying Kent Beck's Test-Driven Development as its originator practiced it. Covers Red/Green/Refactor, the simple design rules, YAGNI, baby steps, and the key forcing questions Beck uses to keep code honest."
     },
     {
       "name": "clean-architecture",
@@ -33,24 +58,24 @@
       "description": "Use when designing DTOs / request-response models / commands, or mapping between them and domain objects \u2014 at the API edge or any boundary. Catches leaking ORM/domain entities to clients, over-posting/mass-assignment, behavior creeping into DTOs, and mapping logic scattered through controllers/services. Technology-agnostic."
     },
     {
-      "name": "kent-beck-tdd",
-      "path": "kent-beck-tdd",
-      "description": "Use when implementing any feature, fixing any bug, or when deciding whether tests are \"good enough\" \u2014 applying Kent Beck's Test-Driven Development as its originator practiced it. Covers Red/Green/Refactor, the simple design rules, YAGNI, baby steps, and the key forcing questions Beck uses to keep code honest."
-    },
-    {
-      "name": "kubernetes-api-design",
-      "path": "kubernetes-api-design",
-      "description": "Use when designing distributed system APIs, control planes, or systems that need eventual consistency \u2014 applying Kubernetes' declarative API design, controller/reconciliation loop pattern, operator pattern, or level-triggered vs edge-triggered design. Also when evaluating whether a system should be imperative or declarative."
-    },
-    {
-      "name": "linux-kernel-culture",
-      "path": "linux-kernel-culture",
-      "description": "Use when contributing to kernel-style projects, writing patch-based submissions, doing code review in a direct/high-signal culture, understanding Linus Torvalds' engineering philosophy, or designing systems where correctness and simplicity are absolute constraints. Covers the Linux development model, patch culture, and Linus's core engineering principles."
-    },
-    {
-      "name": "martin-fowler-refactoring",
-      "path": "martin-fowler-refactoring",
+      "name": "fowler-refactoring",
+      "path": "fowler-refactoring",
       "description": "Use when cleaning up existing code without changing behavior \u2014 recognizing code smells, choosing the right refactoring move, sequencing safe incremental steps, and knowing when to stop. Applies Fowler's refactoring catalog: extract/inline/move/rename mechanics with tests as a safety net."
+    },
+    {
+      "name": "hickey-simplicity",
+      "path": "hickey-simplicity",
+      "description": "Use when evaluating whether a design is genuinely simple or just familiar \u2014 distinguishing simple from easy, identifying complected concepts that should be separated, deciding whether to add an abstraction, or reviewing architecture for hidden complexity. Applies Rich Hickey's \"Simple Made Easy\" philosophy."
+    },
+    {
+      "name": "karpathy-neural-nets",
+      "path": "karpathy-neural-nets",
+      "description": "Use when building or debugging neural networks, deciding how to structure ML code for understanding, training a model that isn't converging, or approaching any complex technical system using Karpathy's \"understand every line\" pedagogy. Covers his recipe for training neural nets, Software 2.0 philosophy, and his build-from-scratch approach to deep understanding."
+    },
+    {
+      "name": "martin-solid",
+      "path": "martin-solid",
+      "description": "Use when reviewing class/module design, deciding whether to extract/split/combine code, evaluating coupling and cohesion, or writing a justification for a design decision. Applies Robert C. Martin's SOLID principles with the original formulations, failure modes each prevents, and the common over-application traps."
     },
     {
       "name": "ml-engineer",
@@ -73,6 +98,11 @@
       "description": "Use when designing or reviewing the persistence layer \u2014 repository interfaces and implementations, the repository vs DAO distinction, mapping domain aggregates to/from ORM entities or rows, query placement, and keeping the database out of the domain. Catches ORM entities leaking as domain models and business logic in repositories. Technology-agnostic."
     },
     {
+      "name": "pocock-typescript",
+      "path": "pocock-typescript",
+      "description": "Use when writing advanced TypeScript \u2014 squeezing maximum type safety from inference, building utility types, using generics with precision, reading complex error messages, or when TypeScript feels like it's fighting you instead of helping. Applies Matt Pocock's (Total TypeScript) approach: inference over annotation, constraints over casts, type-level programming as a first-class skill."
+    },
+    {
       "name": "qa-engineer",
       "path": "qa-engineer",
       "description": "Use when approaching software quality as a QA engineer \u2014 building a testing strategy, deciding what to test and at which layer, writing effective test cases, shifting quality left, reviewing code for testability, designing CI quality gates, or thinking about exploratory vs automated testing. Covers QA mindset, test pyramid, and quality advocacy."
@@ -91,11 +121,6 @@
       "name": "react-performance",
       "path": "react-performance",
       "description": "Use when a React app has rendering performance problems \u2014 excessive re-renders, jank, slow list rendering, large bundle size, or slow initial load. Covers profiling first, then targeted fixes: memo/useMemo/useCallback, virtualization, code splitting, Suspense, and avoiding premature optimization."
-    },
-    {
-      "name": "rich-hickey-simplicity",
-      "path": "rich-hickey-simplicity",
-      "description": "Use when evaluating whether a design is genuinely simple or just familiar \u2014 distinguishing simple from easy, identifying complected concepts that should be separated, deciding whether to add an abstraction, or reviewing architecture for hidden complexity. Applies Rich Hickey's \"Simple Made Easy\" philosophy."
     },
     {
       "name": "service-layer",
@@ -138,14 +163,9 @@
       "description": "Use when proactively hunting for threats in Splunk that existing alerts didn't catch \u2014 forming a hypothesis, exploring data for anomalies, looking for lateral movement, beaconing, living-off-the-land, persistence, or suspicious patterns, and turning findings into detections. Distinct from incident investigation (no known alert) and from writing detections (hunting discovers what to detect)."
     },
     {
-      "name": "typescript-type-philosophy",
-      "path": "typescript-type-philosophy",
-      "description": "Use when designing TypeScript type signatures, choosing between generics/unions/intersections/conditional types, deciding how much type coverage to add, debugging \"type instantiation too deep\" or unsound types, or understanding why TypeScript makes specific trade-offs (structural typing, soundness vs completeness). Covers the TypeScript team's design goals and the practical implications."
-    },
-    {
-      "name": "uncle-bob-solid",
-      "path": "uncle-bob-solid",
-      "description": "Use when reviewing class/module design, deciding whether to extract/split/combine code, evaluating coupling and cohesion, or writing a justification for a design decision. Applies Robert C. Martin's SOLID principles with the original formulations, failure modes each prevents, and the common over-application traps."
+      "name": "tan-product",
+      "path": "tan-product",
+      "description": "Use when making product decisions, evaluating startup ideas, deciding whether to build something, prioritizing features, designing for early users, or thinking about the relationship between engineering and product strategy. Applies Garry Tan's (YC president, ex-Initialized Capital, ex-Posterous) product and founder philosophy \u2014 founder mode, talking to users, design-engineering integration."
     }
   ]
 }

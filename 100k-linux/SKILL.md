@@ -1,5 +1,5 @@
 ---
-name: linux-kernel-culture
+name: 100k-linux
 description: Use when contributing to kernel-style projects, writing patch-based submissions, doing code review in a direct/high-signal culture, understanding Linus Torvalds' engineering philosophy, or designing systems where correctness and simplicity are absolute constraints. Covers the Linux development model, patch culture, and Linus's core engineering principles.
 ---
 

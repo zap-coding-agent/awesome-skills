@@ -1,5 +1,5 @@
 ---
-name: kubernetes-api-design
+name: 100k-kubernetes
 description: Use when designing distributed system APIs, control planes, or systems that need eventual consistency — applying Kubernetes' declarative API design, controller/reconciliation loop pattern, operator pattern, or level-triggered vs edge-triggered design. Also when evaluating whether a system should be imperative or declarative.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: typescript-type-philosophy
+name: 100k-typescript
 description: Use when designing TypeScript type signatures, choosing between generics/unions/intersections/conditional types, deciding how much type coverage to add, debugging "type instantiation too deep" or unsound types, or understanding why TypeScript makes specific trade-offs (structural typing, soundness vs completeness). Covers the TypeScript team's design goals and the practical implications.
 ---
 

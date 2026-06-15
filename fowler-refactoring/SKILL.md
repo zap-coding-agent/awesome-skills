@@ -1,5 +1,5 @@
 ---
-name: martin-fowler-refactoring
+name: fowler-refactoring
 description: Use when cleaning up existing code without changing behavior — recognizing code smells, choosing the right refactoring move, sequencing safe incremental steps, and knowing when to stop. Applies Fowler's refactoring catalog: extract/inline/move/rename mechanics with tests as a safety net.
 ---
 

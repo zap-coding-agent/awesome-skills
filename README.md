@@ -120,6 +120,12 @@ Folder prefix: person's **last name** (e.g. `beck-`, `fowler-`, `karpathy-`). Ph
 | [pocock-handoff](pocock-handoff/SKILL.md) | Compact a conversation into a clean handoff doc for the next agent session. |
 | [pocock-write-a-skill](pocock-write-a-skill/SKILL.md) | CSO: description-as-trigger, progressive disclosure, when to split reference files. |
 
+### Boris Cherny (2 skills — also in Loop Engineering)
+| Skill | Teaches |
+|---|---|
+| [cherny-loop](cherny-loop/SKILL.md) | Loop engineering: the three stages, 6 components, why loops replace prompts, progressive trust escalation. |
+| [cherny-maker-checker](cherny-maker-checker/SKILL.md) | Splitting the agent that writes from the agent that checks — the most important structural move in any loop. |
+
 ### Garry Tan (3 skills)
 | Skill | Teaches |
 |---|---|
@@ -178,6 +184,25 @@ Interactive modes and session tools. Skills from famous engineers appear in **bo
 | [caveman-commit](caveman-commit/SKILL.md) | Writing git commit messages — terse Conventional Commits format. |
 | [caveman-review](caveman-review/SKILL.md) | Reviewing a PR — one-line-per-finding comments with severity prefix. |
 | [caveman-compress](caveman-compress/SKILL.md) | Compressing a CLAUDE.md or memory file to save input tokens. |
+
+---
+
+## Loop Engineering
+
+Agent loops — the paradigm Boris Cherny described as the next wave after prompt engineering. Skills that appear in the personality section (cherny-*) are mirrored here for discoverability.
+
+### Philosophy (also in Personality)
+| Skill | Use when… |
+|---|---|
+| [cherny-loop](cherny-loop/SKILL.md) | Deciding whether to build a loop, understanding the three stages, designing the full loop architecture. |
+| [cherny-maker-checker](cherny-maker-checker/SKILL.md) | An agent self-certifying its own work, or needing an independent quality gate inside a loop. |
+
+### Loop Design Patterns
+| Skill | Use when… |
+|---|---|
+| [loop-design](loop-design/SKILL.md) | Building a loop from scratch — trigger, goal, actions, verification, memory, structural skeleton. |
+| [loop-maker-checker](loop-maker-checker/SKILL.md) | Implementing the checker agent: prompt design, verdict contract, escalation on repeated failure. |
+| [loop-stopping-conditions](loop-stopping-conditions/SKILL.md) | A loop doesn't terminate, burns budget, or needs a reliable halt strategy — four-part goal contract. |
 
 ---
 

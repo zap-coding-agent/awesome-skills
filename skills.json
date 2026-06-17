@@ -1,6 +1,6 @@
 {
   "$schema": "https://agentskills.io/specification",
-  "generated": "2026-06-15T09:28:06Z",
+  "generated": "2026-06-17T17:21:55Z",
   "skills": [
     {
       "name": "100k-kubernetes",
@@ -56,6 +56,16 @@
       "name": "caveman-review",
       "path": "caveman-review",
       "description": "Use when reviewing a PR or diff \u2014 writes one-line-per-finding code review comments in format \"location: problem. fix.\" Triggers on \"review this PR\", \"code review\", \"review the diff\", or /caveman-review."
+    },
+    {
+      "name": "cherny-loop",
+      "path": "cherny-loop",
+      "description": "Use when designing an agentic system, moving beyond single prompts to autonomous agent loops, deciding whether to build a loop or write a prompt, or when work should run unattended on a schedule. Applies Boris Cherny's loop engineering framework \u2014 the paradigm shift from prompt-operator to loop-architect."
+    },
+    {
+      "name": "cherny-maker-checker",
+      "path": "cherny-maker-checker",
+      "description": "Use when designing a multi-agent system, an agent is self-certifying its own work as complete, outputs aren't trustworthy without independent review, or a loop needs a quality gate. Applies Boris Cherny's maker-checker pattern \u2014 the most important structural move inside any agent loop."
     },
     {
       "name": "clean-architecture",
@@ -136,6 +146,21 @@
       "name": "karpathy-vibe-coding",
       "path": "karpathy-vibe-coding",
       "description": "Use when working with AI coding assistants (Claude, Copilot, Cursor, etc.) as a core part of development \u2014 deciding what to delegate to AI vs write yourself, maintaining code understanding while using AI generation, catching AI mistakes, and applying Karpathy's philosophy of \"vibe coding\" for the right tasks and manual coding for the ones where understanding matters."
+    },
+    {
+      "name": "loop-design",
+      "path": "loop-design",
+      "description": "Use when building an agent loop from scratch \u2014 designing the trigger, goal, actions, verification, and memory of an autonomous agent system. Applies when a recurring task should run unattended, when a single agent prompt isn't enough, or when you need compounding leverage from a system you build once."
+    },
+    {
+      "name": "loop-maker-checker",
+      "path": "loop-maker-checker",
+      "description": "Use when an agent loop needs a quality gate, an agent is self-certifying its own output, outputs are unreliable without independent review, or you need to split code generation from code verification inside a loop. Practical implementation of the maker-checker pattern."
+    },
+    {
+      "name": "loop-stopping-conditions",
+      "path": "loop-stopping-conditions",
+      "description": "Use when a loop doesn't terminate, runs forever on a bad goal, burns budget without making progress, or needs a reliable halt strategy. Covers primary stopping conditions (goal met), fallback budgets (max turns/cost/no-progress), and escalation when neither fires."
     },
     {
       "name": "martin-clean-arch",
